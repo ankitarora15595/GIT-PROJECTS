@@ -1,1 +1,1 @@
-# GIT-PROJECTS
+# Learning Projects
