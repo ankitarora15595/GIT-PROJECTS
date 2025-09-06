@@ -1,0 +1,32 @@
+1. create an account
+2. Login
+3. update your profile
+4. Feed Page - Explore
+5. Send Connection Request
+6. See our Matches
+7. See the request we have sent/recieved
+8. update your profile  
+
+LLD
+-> DB Design
+    -> User Profile(FN, LN, EmailID, Password, age, Gender)
+    -> ConnectionRequest(from_uid, to_uid,status)
+     
+-> API Design {REST API}
+    ->GET API(fetch)
+    ->POST API(send)
+    ->PUT API(update the data)
+    ->PATCH API(UPDATE THE DATA, SLIGHTLY DIFFERENT THAN PUT)
+    ->DELETE API
+
+->TYPES OF API:
+    ->POST/SIGNUP
+    ->POST/LOGIN
+    ->GET/PROFILE
+    ->POST/PROFILE
+    ->PATCH/PROFILE
+    ->DELETE/PROFILE
+    ->POST/SENDREQUEST
+    ->POST/OVERVIEWREQUEST
+    ->GET/REQUEST
+    ->GET/CONNECTION
