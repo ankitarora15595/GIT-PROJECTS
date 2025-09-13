@@ -5,10 +5,13 @@
   const {validationForSignup} = require("./utils/Validations")  
   const bcrypt = require("bcrypt");
   const validator = require("validator");
+  const cookieParser = require("cookie-parser"); 
+  const jwt = require("jsonwebtoken");
+  const {userAuth} = require("./middlewares/auth");
 
 
   app.use(express.json());
-
+  app.use(cookieParser());
 
   app.get("/feed",
     async(req,res)=>    {
@@ -96,6 +99,16 @@
 
     });
 
+  app.get("/profile",userAuth, async(req,res)=> 
+  {
+    try{
+      res.send(req.user);
+    }catch(err)
+      {
+        res.status(400).send("Error : "+err.message);
+      }
+
+  });
   app.get("/login",async(req,res)=>
   {
     try{
@@ -117,6 +130,13 @@
         throw new Error("Invalid Password!!!");
       }
       else{
+          const token = jwt.sign({_id:user._id},"Ankit$Arora#123",
+            {expiresIn:"1h"}
+          );
+
+        res.cookie("token",token,
+          {expires : new Date(Date.now()+3600000)}
+        );
         res.send("Login Successfully");
       }
     }catch(err)
