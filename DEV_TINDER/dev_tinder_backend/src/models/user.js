@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema(
     {
         firstName:{
             type: String,
-            require:true,
+            required:true,
             minLen:2,
             maxLen:50,
             trim:true
@@ -45,10 +45,11 @@ const userSchema = new mongoose.Schema(
         gender:{
             type: String,
             validate(value){
-            if(!["male","female","others"].includes(value))
-            {
-                throw new Error("NOT VALID GENDER DATA!!!");
-            }
+                if(!["male","female","others"].includes(value))
+                {
+                    throw new Error("NOT VALID GENDER DATA!!!");
+                }
+            },
         },
         photoUrl:{
             type:String,
@@ -70,7 +71,6 @@ const userSchema = new mongoose.Schema(
         skills:{
             type:[String]
         }
-        },
 
     },
     {timestamps:true}
