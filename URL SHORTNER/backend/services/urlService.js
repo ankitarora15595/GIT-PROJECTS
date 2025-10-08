@@ -11,7 +11,9 @@ function persistMappings() {
 
 function shortenUrl(longUrl) {
   const hash = crypto.createHash('sha256').update(longUrl).digest('hex');
+  console.log(longUrl,hash);
   const shortCode = encodeBase62(hash).substring(0, 8);
+  console.log(shortCode);
   if (!global.urlMappings[shortCode]) {
     global.urlMappings[shortCode] = longUrl;
     persistMappings();

@@ -1,0 +1,16 @@
+{
+  "name": "url-shortner-service",
+  "version": "1.0.0",
+  "description": "Azuga Assignment",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "author": "Ankit Arora",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "jest": "^30.2.0"
+  }
+}
