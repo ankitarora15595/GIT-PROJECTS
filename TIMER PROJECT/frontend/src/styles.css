@@ -1,0 +1,33 @@
+.app {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin-top: 50px;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.duration-buttons button,
+.control-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.timer-display {
+  font-size: 60pt;
+  font-weight: bold;
+  color: #333;
+  margin: 40px 0;
+  text-align: center;
+}
