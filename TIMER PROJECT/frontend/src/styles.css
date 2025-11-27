@@ -14,9 +14,9 @@
 
 .duration-buttons button,
 .control-buttons button {
-  margin: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
+  margin: 20px;
+  padding: 20px 30px;
+  font-size: 32px;
 }
 
 .active {
@@ -25,7 +25,7 @@
 }
 
 .timer-display {
-  font-size: 60pt;
+  font-size: 120pt;
   font-weight: bold;
   color: #333;
   margin: 40px 0;

@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
 
 const tickSound = new Audio('/sounds/tick.mp3');
-const durations = [5, 10, 60];
+const timeUpSound = new Audio('/sounds/timesup.mp3');
+const durations = [5, 10, 15, 20, 60];
 
 function Timer() {
   const [selectedDuration, setSelectedDuration] = useState(5);
   const [timeLeft, setTimeLeft] = useState(5);
   const [isRunning, setIsRunning] = useState(false);
 
+  // useEffect(() => {
+  //   let timer;
+  //   if (isRunning && timeLeft > 0) {
+  //     tickSound.play();
+  //     timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+  //   } else if (timeLeft === 0) {
+  //     setIsRunning(false);
+  //   }
+  //   return () => clearTimeout(timer);
+  // }, [isRunning, timeLeft]);
+
   useEffect(() => {
-    let timer;
-    if (isRunning && timeLeft > 0) {
-      tickSound.play();
-      timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-    } else if (timeLeft === 0) {
-      setIsRunning(false);
-    }
-    return () => clearTimeout(timer);
-  }, [isRunning, timeLeft]);
+  let timer;
+  if (isRunning && timeLeft > 0) {
+    tickSound.play();
+    timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+  } else if (isRunning && timeLeft === 0) {
+    timeUpSound.play();
+    setIsRunning(false);
+  }
+  return () => clearTimeout(timer);
+}, [isRunning, timeLeft]);
 
   const handlePlay = () => setIsRunning(true);
   const handleStop = () => setIsRunning(false);
